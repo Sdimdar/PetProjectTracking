@@ -15,11 +15,11 @@ public class TaskRepository : ITaskRepository
         _db = db;
     }
 
-    public async Task<TaskDbModel> AddAsync(TaskDbModel entity)
+    public async Task<bool> AddAsync(TaskDbModel entity)
     {
         _db.TaskDbModels.Add(entity);
         await _db.SaveChangesAsync();
-        return entity;
+        return true;
     }
 
     public async Task UpdateAsync(TaskDbModel entity)

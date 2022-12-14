@@ -1,4 +1,6 @@
-﻿namespace ProjectTracking.API.Common.Exceptions;
+﻿
+
+namespace ProjectTracking.Application.Exceptions;
 
 public class BaseException : ApplicationException
 {

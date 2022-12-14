@@ -1,5 +1,5 @@
 using ProjectTracking.API;
-using ProjectTracking.API.Common.Exceptions;
+using ProjectTracking.API.Common;
 using ProjectTracking.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
 using ProjectTracking.Application.Contracts;
+using ProjectTracking.Application.Exceptions;
 using ProjectTracking.Domain.Entities;
 using ProjectTracking.Infrastructure.Persistence;
 
@@ -16,11 +17,11 @@ public class ProjectRepository:IProjectRepository
         _db = db;
     }
 
-    public async Task<ProjectDbModel> AddAsync(ProjectDbModel entity)
+    public async Task<bool> AddAsync(ProjectDbModel entity)
     {
         _db.Projects.Add(entity);
         await _db.SaveChangesAsync();
-        return entity;
+        return true;
     }
 
     public async Task UpdateAsync(ProjectDbModel entity)
@@ -40,6 +41,7 @@ public class ProjectRepository:IProjectRepository
     public async Task<ProjectDbModel?> GetByIdAsync(int id)
     {
         var entity = await _db.Projects.FirstOrDefaultAsync(e => e.Id == id);
+        if (entity is null) throw new DatabaseException($"Entity with id = {id} not found");
         return entity;
     }
 

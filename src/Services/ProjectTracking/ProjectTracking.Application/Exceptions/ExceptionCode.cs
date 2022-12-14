@@ -1,4 +1,4 @@
-﻿namespace ProjectTracking.API.Common.Exceptions;
+﻿namespace ProjectTracking.Application.Exceptions;
 
 public enum ExceptionCode
 {

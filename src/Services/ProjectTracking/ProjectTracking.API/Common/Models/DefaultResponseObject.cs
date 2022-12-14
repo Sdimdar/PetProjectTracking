@@ -1,4 +1,4 @@
-﻿using ProjectTracking.API.Common.Exceptions;
+﻿using ProjectTracking.Application.Exceptions;
 
 namespace ProjectTracking.API.Common.Models;
 

@@ -1,4 +1,5 @@
 ﻿
+
 using ProjectTracking.Domain.Entities;
 
 namespace ProjectTracking.Application.Contracts;

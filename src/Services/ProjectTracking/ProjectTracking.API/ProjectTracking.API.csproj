@@ -20,10 +20,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ProjectTracking.Application\ProjectTracking.Application.csproj" />
-      <ProjectReference Include="..\ProjectTracking.Domain\ProjectTracking.Domain\ProjectTracking.Domain.csproj" />
       <ProjectReference Include="..\ProjectTracking.Infrastructure\ProjectTracking.Infrastructure.csproj" />
-      <ProjectReference Include="..\ProjectTracking.Infrastructure\ProjectTracking.Infrastructure\ProjectTracking.Infrastructure.csproj" />
     </ItemGroup>
+
 
 </Project>

@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProjectTracking.Application.Contracts;
 using ProjectTracking.Infrastructure.Persistence;
+using ProjectTracking.Infrastructure.Repositories;
 
 namespace ProjectTracking.Infrastructure;
 
@@ -12,7 +14,8 @@ public static class DependencyInjection
         services.AddDbContext<ProjectTrackingDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnectionString")));
 
-        // services.AddScoped<IRequestRepository, RequestRepository>();
+        services.AddScoped<IProjectRepository, ProjectRepository>();
+        services.AddScoped<ITaskRepository, TaskRepository>();
 
         return services;
     }

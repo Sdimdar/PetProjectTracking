@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\ProjectTracking.Application\ProjectTracking.Application.csproj" />
         <ProjectReference Include="..\ProjectTracking.Domain\ProjectTracking.Domain.csproj" />
     </ItemGroup>
 
@@ -18,10 +19,6 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Repositories" />
     </ItemGroup>
 
 </Project>

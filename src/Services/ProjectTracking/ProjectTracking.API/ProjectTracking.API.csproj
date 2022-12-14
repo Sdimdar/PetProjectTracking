@@ -11,12 +11,19 @@
         <PackageReference Include="Ardalis.ApiEndpoints.Swashbuckle" Version="4.0.1" />
         <PackageReference Include="AutoMapper" Version="12.0.0" />
         <PackageReference Include="MediatR" Version="11.1.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.12">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ProjectTracking.Application\ProjectTracking.Application.csproj" />
+      <ProjectReference Include="..\ProjectTracking.Domain\ProjectTracking.Domain\ProjectTracking.Domain.csproj" />
+      <ProjectReference Include="..\ProjectTracking.Infrastructure\ProjectTracking.Infrastructure.csproj" />
+      <ProjectReference Include="..\ProjectTracking.Infrastructure\ProjectTracking.Infrastructure\ProjectTracking.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

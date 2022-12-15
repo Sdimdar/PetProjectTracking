@@ -1,5 +1,6 @@
 using ProjectTracking.API;
 using ProjectTracking.API.Common;
+using ProjectTracking.Application;
 using ProjectTracking.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +11,15 @@ services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
 services.AddSwagger();
+services.SetCorsPolicy();
+services.SetAutomapperProfiles();
+
+
 
 // Add API services
+services.AddApplicationServices();
 services.AddInfrastructureServices(builder.Configuration);
+
 
 
 var app = builder.Build();
@@ -27,7 +34,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
 app.MapControllers();

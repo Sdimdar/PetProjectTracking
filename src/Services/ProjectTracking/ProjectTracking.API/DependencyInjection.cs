@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.OpenApi.Models;
-using ProjectTracking.API.Mapping;
+using ProjectTracking.Application.Mapping;
 
 namespace ProjectTracking.API;
 

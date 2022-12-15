@@ -22,16 +22,18 @@ public class TaskRepository : ITaskRepository
         return true;
     }
 
-    public async Task UpdateAsync(TaskDbModel entity)
+    public async Task<bool> UpdateAsync(TaskDbModel entity)
     {
         _db.TaskDbModels.Update(entity);
         await _db.SaveChangesAsync();
+        return true;
     }
 
-    public async Task DeleteAsync(TaskDbModel entity)
+    public async Task<bool> DeleteAsync(TaskDbModel entity)
     {
         _db.TaskDbModels.Remove(entity);
         await _db.SaveChangesAsync();
+        return true;
     }
 
     public async Task<TaskDbModel?> GetByIdAsync(int id)

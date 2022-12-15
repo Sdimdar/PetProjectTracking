@@ -24,18 +24,20 @@ public class ProjectRepository:IProjectRepository
         return true;
     }
 
-    public async Task UpdateAsync(ProjectDbModel entity)
+    public async Task<bool> UpdateAsync(ProjectDbModel entity)
     {
         _db.Projects.Update(entity);
         await _db.SaveChangesAsync();
+        return true;
     }
 
-    public async Task DeleteAsync(ProjectDbModel entity)
+    public async Task<bool> DeleteAsync(ProjectDbModel entity)
     {
         IQueryable<TaskDbModel> query = _db.TaskDbModels.Where(x => x.ProjectId == entity.Id);
         _db.TaskDbModels.RemoveRange(query);
         _db.Projects.Remove(entity);
         await _db.SaveChangesAsync();
+        return true;
     }
 
     public async Task<ProjectDbModel?> GetByIdAsync(int id)

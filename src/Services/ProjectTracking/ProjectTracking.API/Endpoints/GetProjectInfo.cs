@@ -20,7 +20,7 @@ public class GetProjectInfo : EndpointBaseAsync
         _mediator = mediator;
     }
 
-    [HttpPost("/Project/GetInfo")]
+    [HttpGet("/Project/GetInfo")]
     [SwaggerOperation(
         Summary = "Get base info about project",
         Description = "need to pass the project id",

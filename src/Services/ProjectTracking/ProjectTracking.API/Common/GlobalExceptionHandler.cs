@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text;
+using FluentValidation;
 using ProjectTracking.API.Common.Models;
 using ProjectTracking.Application.Exceptions;
 
@@ -22,14 +23,14 @@ public class GlobalExceptionHandler
         catch (BaseException ex)
         {
             
-            DefaultResponseObject<object> response = new(ex.ExceptionCode, GetBusinessExceptionMessage(ex));
+            DefaultResponseObject<object> response = new(ex.ExceptionCode, ex.Message);
             context.Response.StatusCode = (int)HttpStatusCode.OK;
             await context.Response.WriteAsJsonAsync(response);
         }
-        catch (FluentValidation.ValidationException ex)
+        catch (ValidationException ex)
         {
-            Console.WriteLine(ex.Errors);
-            DefaultResponseObject<object> response = new(ExceptionCode.ValidationDataException, ex.InnerException.Message);
+            Console.WriteLine(ex.Message);
+            DefaultResponseObject<object> response = new(ExceptionCode.ValidationDataException, ex.Message);
             context.Response.StatusCode = (int)HttpStatusCode.OK;
             await context.Response.WriteAsJsonAsync(response);
         }
@@ -56,15 +57,7 @@ public class GlobalExceptionHandler
 
         return builder.ToString();
     }
-
-    private static string GetBusinessExceptionMessage(BaseException ex)
-    {
-        return ex.ExceptionCode switch
-        {
-            ExceptionCode.DbException => "Database read/write exception. Try later or with another data",
-            _ => "Unknown business error"
-        };
-    }
+    
 
 
     

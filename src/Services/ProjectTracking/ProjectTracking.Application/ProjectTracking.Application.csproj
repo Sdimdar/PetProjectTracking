@@ -17,10 +17,6 @@
     <ItemGroup>
       <ProjectReference Include="..\ProjectTracking.Domain\ProjectTracking.Domain.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Features\Tasks\Queries" />
-    </ItemGroup>
     
 
 </Project>

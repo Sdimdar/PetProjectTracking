@@ -48,6 +48,11 @@ public class TaskRepository : ITaskRepository
             .Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
     }
 
+    public async Task<List<TaskDbModel>> GetTasksByProjectId(int projectId)
+    {
+        return await _db.TaskDbModels.Where(x => x.ProjectId == projectId).ToListAsync();
+    }
+
     private IQueryable<TaskDbModel> FilterByString(IQueryable<TaskDbModel> projects, string? filetString)
     {
         return string.IsNullOrEmpty(filetString)

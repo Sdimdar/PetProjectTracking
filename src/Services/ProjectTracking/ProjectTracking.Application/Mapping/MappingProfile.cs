@@ -12,6 +12,7 @@ public class MappingProfile : Profile
             CreateMap<ProjectDbModel, ProjectInfoVm>()
                 .ForMember(p => p.StartDate, opt => opt.MapFrom(x => x.StartDate.ToString("dd.MM.yyyy")))
                 .ForMember(p => p.EndDate, opt => opt.MapFrom(x => x.EndDate.ToString("dd.MM.yyyy")));
+            CreateMap<TaskDbModel, TaskInfoVm>();
         }
     }
 }
